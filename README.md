@@ -22,23 +22,39 @@ windows-01        191.237.249.89       10.0.0.5
 En este caso tanto la maquina windows-01 como kali-linuxvm01 tienen una IP publica. Podemos llegar a la maquina kali-linuxvm01 via ssh con la ip 191.237.252.78. Corramos un ifconfig dentro de la maquina:
 
 benjadiaz@kali-linuxvm01:~$ ifconfig
+
 eth0: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+
         inet 10.0.0.4  netmask 255.255.255.0  broadcast 10.0.0.255
+        
         inet6 fe80::20d:3aff:fec0:6f03  prefixlen 64  scopeid 0x20<link>
+        
         ether 00:0d:3a:c0:6f:03  txqueuelen 1000  (Ethernet)
+        
         RX packets 266398  bytes 82820133 (78.9 MiB)
+        
         RX errors 0  dropped 0  overruns 0  frame 0
+        
         TX packets 322630  bytes 76050507 (72.5 MiB)
+        
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 
 lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+
         inet 127.0.0.1  netmask 255.0.0.0
+        
         inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        
         loop  txqueuelen 1000  (Local Loopback)
+        
         RX packets 463  bytes 39116 (38.1 KiB)
+        
         RX errors 0  dropped 0  overruns 0  frame 0
+        
         TX packets 463  bytes 39116 (38.1 KiB)
+        
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+        
 
 De la tarjeta de red eth0 podemos entender que la ip interna es 10.0.0.4 y que la mascara es 10.0.0.255. O sea 10.0.0.0/24.
 
