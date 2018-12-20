@@ -45,6 +45,17 @@ De la tarjeta de red eth0 podemos entender que la ip interna es 10.0.0.4 y que l
 Ahora entendamos que otras maquinas estan en la red utilizando nmap (ya instalado por defecto en Kali):
 
         nmap -sP -PI -PT 10.0.0.0/24
+        
+La salida de nmap nos va a mostrar
+
+        Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-20 08:41 EST
+        Stats: 0:00:01 elapsed; 0 hosts completed (0 up), 256 undergoing Ping Scan
+        Ping Scan Timing: About 31.25% done; ETC: 08:41 (0:00:04 remaining)
+        Nmap scan report for 10.0.0.4
+        Host is up (0.00010s latency).
+        Nmap scan report for 10.0.0.6
+        Host is up (0.0022s latency).
+        Nmap done: 256 IP addresses (2 hosts up) scanned in 1.91 seconds
 
 
 
