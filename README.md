@@ -44,18 +44,75 @@ De la tarjeta de red eth0 podemos entender que la ip interna es 10.0.0.4 y que l
 
 Ahora entendamos que otras maquinas estan en la red utilizando nmap (ya instalado por defecto en Kali):
 
-        nmap -sP -PI -PT 10.0.0.0/24
+        sudo nmap -sP -PI -PT 10.0.0.0/24
         
-La salida de nmap nos va a mostrar
+La salida de nmap nos va a mostrar los hosts que hay activos en la red donde esta la maquina. En este caso nos damos cuenta que las maquinas en la red son:
 
-        Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-20 08:41 EST
-        Stats: 0:00:01 elapsed; 0 hosts completed (0 up), 256 undergoing Ping Scan
-        Ping Scan Timing: About 31.25% done; ETC: 08:41 (0:00:04 remaining)
-        Nmap scan report for 10.0.0.4
-        Host is up (0.00010s latency).
+        Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-20 10:22 EST
+        Nmap scan report for 10.0.0.1
+        Host is up (0.00045s latency).
+        MAC Address: 12:34:56:78:9A:BC (Unknown)
+        Nmap scan report for 10.0.0.5
+        Host is up (0.00064s latency).
+        MAC Address: 12:34:56:78:9A:BC (Unknown)
         Nmap scan report for 10.0.0.6
-        Host is up (0.0022s latency).
-        Nmap done: 256 IP addresses (2 hosts up) scanned in 1.91 seconds
+        Host is up (0.0011s latency).
+        MAC Address: 12:34:56:78:9A:BC (Unknown)
+        Nmap scan report for 10.0.0.4
 
+Hay dos hosts en la red mas aparte de el de kali-linuxvm01. 
+Ahora hagamos un scan de puertos abiertos en los hosts que estan arriba:
+
+Partamos por la maquina 10.0.0.5:
+
+        sudo nmap -sS -O -PI -PT 10.0.0.5
+
+        Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-20 10:25 EST
+        Nmap scan report for 10.0.0.5
+        Host is up (0.00088s latency).
+        Not shown: 999 filtered ports
+        PORT     STATE SERVICE
+        3389/tcp open  ms-wbt-server
+        MAC Address: 12:34:56:78:9A:BC (Unknown)
+        Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port
+        Device type: specialized|general purpose
+        Running (JUST GUESSING): AVtech embedded (87%), FreeBSD 6.X (85%)
+        OS CPE: cpe:/o:freebsd:freebsd:6.2
+        Aggressive OS guesses: AVtech Room Alert 26W environmental monitor (87%), FreeBSD 6.2-RELEASE (85%)
+        No exact OS matches for host (test conditions non-ideal).
+        Network Distance: 1 hop
+
+        OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+        Nmap done: 1 IP address (1 host up) scanned in 9.44 seconds
+ 
+Nos damos cuenta que la maquina tiene abierto un puerto RDP, por lo cual podemos intentar conectarnos por RDP,
+Ahora vamos con la 10.0.0.6:
+
+        sudo nmap -sS -O -PI -PT 10.0.0.6
+
+        Starting Nmap 7.70 ( https://nmap.org ) at 2018-12-20 10:25 EST
+        Nmap scan report for 10.0.0.6
+        Host is up (0.00078s latency).
+        Not shown: 999 closed ports
+        PORT   STATE SERVICE
+        22/tcp open  ssh
+        MAC Address: 12:34:56:78:9A:BC (Unknown)
+        No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+        TCP/IP fingerprint:
+        OS:SCAN(V=7.70%E=4%D=12/20%OT=22%CT=1%CU=40489%PV=Y%DS=1%DC=D%G=Y%M=123456%
+        OS:TM=5C1BB485%P=x86_64-pc-linux-gnu)SEQ(SP=104%GCD=1%ISR=10D%TI=Z%CI=I%II=
+        OS:I%TS=A)OPS(O1=M58AST11NW7%O2=M58AST11NW7%O3=M58ANNT11NW7%O4=M58AST11NW7%
+        OS:O5=M58AST11NW7%O6=M58AST11)WIN(W1=7120%W2=7120%W3=7120%W4=7120%W5=7120%W
+        OS:6=7120)ECN(R=Y%DF=Y%T=40%W=7210%O=M58ANNSNW7%CC=Y%Q=)T1(R=Y%DF=Y%T=40%S=
+        OS:O%A=S+%F=AS%RD=0%Q=)T2(R=N)T3(R=N)T4(R=Y%DF=Y%T=40%W=0%S=A%A=Z%F=R%O=%RD
+        OS:=0%Q=)T5(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=Y%T=40%W=0
+        OS:%S=A%A=Z%F=R%O=%RD=0%Q=)T7(R=Y%DF=Y%T=40%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1
+        OS:(R=Y%DF=N%T=40%IPL=164%UN=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI
+        OS:=N%T=40%CD=S)
+
+        Network Distance: 1 hop
+
+        OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+        Nmap done: 1 IP address (1 host up) scanned in 12.05 seconds
 
 
