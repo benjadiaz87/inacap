@@ -10,9 +10,13 @@ La primera parte del laboratorio consiste en ingresar via ssh a la maquina con n
 az vm list-ip-addresses --out table
 
 VirtualMachine    PublicIPAddresses    PrivateIPAddresses
+
 ----------------  -------------------  --------------------
+
 kali-linuxvm01    191.237.252.78       10.0.0.4
+
 ubuntuvm-01                            10.0.0.6
+
 windows-01        191.237.249.89       10.0.0.5
 
 En este caso tanto la maquina windows-01 como kali-linuxvm01 tienen una IP publica. Podemos llegar a la maquina kali-linuxvm01 via ssh con la ip 191.237.252.78. Corramos un ifconfig dentro de la maquina:
