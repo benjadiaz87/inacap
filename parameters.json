@@ -2,37 +2,40 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "virtualMachines_windows_01_name": {
+        "virtualMachines_kalivm_01_name": {
             "value": null
         },
         "virtualMachines_ubuntuvm_01_name": {
             "value": null
         },
-        "virtualMachines_kali_linuxvm01_name": {
+        "virtualMachines_windowsvm_01_name": {
             "value": null
         },
-        "networkInterfaces_windows_01371_name": {
+        "networkInterfaces_kalivm_01321_name": {
             "value": null
         },
-        "networkInterfaces_ubuntuvm_01949_name": {
+        "publicIPAddresses_kalivm_01_ip_name": {
             "value": null
         },
-        "virtualNetworks_inacap_demoRG_vnet_name": {
+        "networkInterfaces_ubuntuvm_01480_name": {
             "value": null
         },
-        "networkInterfaces_kali_linuxvm01840_name": {
+        "publicIPAddresses_ubuntuvm_01_ip_name": {
             "value": null
         },
-        "publicIPAddresses_kali_linuxvm01_ip_name": {
+        "virtualNetworks_inacap_rg01_vnet_name": {
             "value": null
         },
-        "networkSecurityGroups_windows_01_nsg_name": {
+        "networkInterfaces_windowsvm_01937_name": {
+            "value": null
+        },
+        "networkSecurityGroups_kalivm_01_nsg_name": {
             "value": null
         },
         "networkSecurityGroups_ubuntuvm_01_nsg_name": {
             "value": null
         },
-        "networkSecurityGroups_kali_linuxvm01_nsg_name": {
+        "networkSecurityGroups_windowsvm_01_nsg_name": {
             "value": null
         },
         "subnets_default_name": {
@@ -44,13 +47,19 @@
         "securityRules_RDP_name": {
             "value": null
         },
-        "virtualMachines_kali_linuxvm01_id": {
+        "securityRules_SSH_name_1": {
+            "value": null
+        },
+        "securityRules_RDP_name_1": {
+            "value": null
+        },
+        "virtualMachines_kalivm_01_id": {
             "value": null
         },
         "virtualMachines_ubuntuvm_01_id": {
             "value": null
         },
-        "virtualMachines_windows_01_id": {
+        "virtualMachines_windowsvm_01_id": {
             "value": null
         }
     }
