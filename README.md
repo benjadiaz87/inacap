@@ -1,8 +1,5 @@
 [![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://azuredeploy.net/)
 
-<a href="http://armviz.io/#/?load=https://raw.githubusercontent.com/benjadiaz87/inacap/azuredeploy.json" target="_blank">
-  <img src="http://armviz.io/visualizebutton.png"/>
-</a>
 
 Demo para crear laboratorios automatizados para la carrera de seguridad en INACAP
 ====================
