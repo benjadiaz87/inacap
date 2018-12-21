@@ -18,20 +18,8 @@
             "defaultValue": "windows-01371",
             "type": "String"
         },
-        "publicIPAddresses_windows_01_ip_name": {
-            "defaultValue": "windows-01-ip",
-            "type": "String"
-        },
         "networkInterfaces_ubuntuvm_01949_name": {
             "defaultValue": "ubuntuvm-01949",
-            "type": "String"
-        },
-        "publicIPAddresses_ubuntuvm_01_ip_name": {
-            "defaultValue": "ubuntuvm-01-ip",
-            "type": "String"
-        },
-        "storageAccounts_inacapdemorgdiag_name": {
-            "defaultValue": "inacapdemorgdiag",
             "type": "String"
         },
         "virtualNetworks_inacap_demoRG_vnet_name": {
@@ -142,13 +130,12 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', parameters('storageAccounts_inacapdemorgdiag_name'), '.blob.core.windows.net', '/')]"
+                        "storageUri": "https://inacapdemorgdiag.blob.core.windows.net/"
                     }
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_kali_linuxvm01840_name'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_inacapdemorgdiag_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_kali_linuxvm01840_name'))]"
             ]
         },
         {
@@ -203,13 +190,12 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', parameters('storageAccounts_inacapdemorgdiag_name'), '.blob.core.windows.net', '/')]"
+                        "storageUri": "https://inacapdemorgdiag.blob.core.windows.net/"
                     }
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ubuntuvm_01949_name'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_inacapdemorgdiag_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ubuntuvm_01949_name'))]"
             ]
         },
         {
@@ -264,14 +250,13 @@
                 "diagnosticsProfile": {
                     "bootDiagnostics": {
                         "enabled": true,
-                        "storageUri": "[concat('https', '://', parameters('storageAccounts_inacapdemorgdiag_name'), '.blob.core.windows.net', '/')]"
+                        "storageUri": "https://inacapdemorgdiag.blob.core.windows.net/"
                     }
                 },
                 "licenseType": "Windows_Client"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_windows_01371_name'))]",
-                "[resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccounts_inacapdemorgdiag_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_windows_01371_name'))]"
             ]
         },
         {
@@ -288,7 +273,7 @@
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "etag": "W/\"6b314de8-6ea1-4d4c-88e6-596e05fff1f8\"",
+                        "etag": "W/\"9b4c12ae-1f3f-4986-980f-48a81c771af2\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "privateIPAddress": "10.0.0.4",
@@ -338,14 +323,11 @@
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "etag": "W/\"51bf113b-1af3-4b5e-ab43-ac7f2bcba31c\"",
+                        "etag": "W/\"a4a3ece7-7780-48d0-8d2a-7eda7f919c00\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "privateIPAddress": "10.0.0.6",
                             "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ubuntuvm_01_ip_name'))]"
-                            },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]"
                             },
@@ -369,7 +351,6 @@
                 "tapConfigurations": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ubuntuvm_01_ip_name'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_ubuntuvm_01_nsg_name'))]"
             ]
@@ -388,14 +369,11 @@
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "etag": "W/\"9be5688c-eebf-4e48-a1c9-393a57620882\"",
+                        "etag": "W/\"d7a3f4bb-2253-46f8-ab31-623e5027478e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "privateIPAddress": "10.0.0.5",
                             "privateIPAllocationMethod": "Dynamic",
-                            "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_windows_01_ip_name'))]"
-                            },
                             "subnet": {
                                 "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]"
                             },
@@ -419,7 +397,6 @@
                 "tapConfigurations": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_windows_01_ip_name'))]",
                 "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_windows_01_nsg_name'))]"
             ]
@@ -898,52 +875,6 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/publicIPAddresses/ubuntuvm-01-ip'.",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "sku": {
-                "name": "Basic",
-                "tier": "Regional"
-            },
-            "name": "[parameters('publicIPAddresses_ubuntuvm_01_ip_name')]",
-            "apiVersion": "2018-08-01",
-            "location": "brazilsouth",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "9e885dd8-c1b9-4683-8f79-6b4040df7b40",
-                "ipAddress": "191.237.252.99",
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
-                "idleTimeoutInMinutes": 4,
-                "ipTags": []
-            },
-            "dependsOn": []
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/publicIPAddresses/windows-01-ip'.",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "sku": {
-                "name": "Basic",
-                "tier": "Regional"
-            },
-            "name": "[parameters('publicIPAddresses_windows_01_ip_name')]",
-            "apiVersion": "2018-08-01",
-            "location": "brazilsouth",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "provisioningState": "Succeeded",
-                "resourceGuid": "25391f8b-4aac-4e11-a843-61d27ecbd9e1",
-                "ipAddress": "191.237.249.89",
-                "publicIPAddressVersion": "IPv4",
-                "publicIPAllocationMethod": "Dynamic",
-                "idleTimeoutInMinutes": 4,
-                "ipTags": []
-            },
-            "dependsOn": []
-        },
-        {
             "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/virtualNetworks/inacap-demoRG-vnet'.",
             "type": "Microsoft.Network/virtualNetworks",
             "name": "[parameters('virtualNetworks_inacap_demoRG_vnet_name')]",
@@ -962,7 +893,7 @@
                 "subnets": [
                     {
                         "name": "default",
-                        "etag": "W/\"bb2876c4-42ec-4cc7-9f1a-a5ee1db15811\"",
+                        "etag": "W/\"01bb949e-b1d4-4811-9f36-60e3abaa9aba\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "addressPrefix": "10.0.0.0/24",
@@ -973,41 +904,6 @@
                 "virtualNetworkPeerings": [],
                 "enableDdosProtection": false,
                 "enableVmProtection": false
-            },
-            "dependsOn": []
-        },
-        {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Storage/storageAccounts/inacapdemorgdiag'.",
-            "type": "Microsoft.Storage/storageAccounts",
-            "sku": {
-                "name": "Standard_LRS",
-                "tier": "Standard"
-            },
-            "kind": "Storage",
-            "name": "[parameters('storageAccounts_inacapdemorgdiag_name')]",
-            "apiVersion": "2018-07-01",
-            "location": "brazilsouth",
-            "tags": {},
-            "scale": null,
-            "properties": {
-                "networkAcls": {
-                    "bypass": "AzureServices",
-                    "virtualNetworkRules": [],
-                    "ipRules": [],
-                    "defaultAction": "Allow"
-                },
-                "supportsHttpsTrafficOnly": false,
-                "encryption": {
-                    "services": {
-                        "file": {
-                            "enabled": true
-                        },
-                        "blob": {
-                            "enabled": true
-                        }
-                    },
-                    "keySource": "Microsoft.Storage"
-                }
             },
             "dependsOn": []
         },
