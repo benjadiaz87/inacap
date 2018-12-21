@@ -7,7 +7,7 @@ Primera parte del lab:
 
 La primera parte del laboratorio consiste en ingresar via ssh a la maquina con nombre kali-linuxvm01. Esta maquina tiene una ip publica. Para obtener la lista de maquinas virtuales corriende se puede correr el comando 
 
-        az vm list-ip-addresses --out table
+        az vm list-ip-addresses -g inacap-demoRG --out table
 
         VirtualMachine    PublicIPAddresses    PrivateIPAddresses
         ----------------  -------------------  --------------------
