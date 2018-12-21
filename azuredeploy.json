@@ -2,48 +2,52 @@
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "virtualMachines_windows_01_name": {
-            "defaultValue": "windows-01",
+        "virtualMachines_kalivm_01_name": {
+            "defaultValue": "kalivm-01",
             "type": "String"
         },
         "virtualMachines_ubuntuvm_01_name": {
             "defaultValue": "ubuntuvm-01",
             "type": "String"
         },
-        "virtualMachines_kali_linuxvm01_name": {
-            "defaultValue": "kali-linuxvm01",
+        "virtualMachines_windowsvm_01_name": {
+            "defaultValue": "windowsvm-01",
             "type": "String"
         },
-        "networkInterfaces_windows_01371_name": {
-            "defaultValue": "windows-01371",
+        "networkInterfaces_kalivm_01321_name": {
+            "defaultValue": "kalivm-01321",
             "type": "String"
         },
-        "networkInterfaces_ubuntuvm_01949_name": {
-            "defaultValue": "ubuntuvm-01949",
+        "publicIPAddresses_kalivm_01_ip_name": {
+            "defaultValue": "kalivm-01-ip",
             "type": "String"
         },
-        "virtualNetworks_inacap_demoRG_vnet_name": {
-            "defaultValue": "inacap-demoRG-vnet",
+        "networkInterfaces_ubuntuvm_01480_name": {
+            "defaultValue": "ubuntuvm-01480",
             "type": "String"
         },
-        "networkInterfaces_kali_linuxvm01840_name": {
-            "defaultValue": "kali-linuxvm01840",
+        "publicIPAddresses_ubuntuvm_01_ip_name": {
+            "defaultValue": "ubuntuvm-01-ip",
             "type": "String"
         },
-        "publicIPAddresses_kali_linuxvm01_ip_name": {
-            "defaultValue": "kali-linuxvm01-ip",
+        "virtualNetworks_inacap_rg01_vnet_name": {
+            "defaultValue": "inacap-rg01-vnet",
             "type": "String"
         },
-        "networkSecurityGroups_windows_01_nsg_name": {
-            "defaultValue": "windows-01-nsg",
+        "networkInterfaces_windowsvm_01937_name": {
+            "defaultValue": "windowsvm-01937",
+            "type": "String"
+        },
+        "networkSecurityGroups_kalivm_01_nsg_name": {
+            "defaultValue": "kalivm-01-nsg",
             "type": "String"
         },
         "networkSecurityGroups_ubuntuvm_01_nsg_name": {
             "defaultValue": "ubuntuvm-01-nsg",
             "type": "String"
         },
-        "networkSecurityGroups_kali_linuxvm01_nsg_name": {
-            "defaultValue": "kali-linuxvm01-nsg",
+        "networkSecurityGroups_windowsvm_01_nsg_name": {
+            "defaultValue": "windowsvm-01-nsg",
             "type": "String"
         },
         "subnets_default_name": {
@@ -58,25 +62,33 @@
             "defaultValue": "RDP",
             "type": "String"
         },
-        "virtualMachines_kali_linuxvm01_id": {
-            "defaultValue": "/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Compute/disks/kali-linuxvm01_OsDisk_1_7d8a01bf7a4f4638ad50a2d33cd138f5",
+        "securityRules_SSH_name_1": {
+            "defaultValue": "SSH",
+            "type": "String"
+        },
+        "securityRules_RDP_name_1": {
+            "defaultValue": "RDP",
+            "type": "String"
+        },
+        "virtualMachines_kalivm_01_id": {
+            "defaultValue": "/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Compute/disks/kalivm-01_OsDisk_1_2fd0c4369fff43af90432ad3bd19136f",
             "type": "String"
         },
         "virtualMachines_ubuntuvm_01_id": {
-            "defaultValue": "/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Compute/disks/ubuntuvm-01_OsDisk_1_efa256016bf24e3c9ce61120aaf35a19",
+            "defaultValue": "/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Compute/disks/ubuntuvm-01_OsDisk_1_a34c6adb17ce48248649e91cfcddb7d5",
             "type": "String"
         },
-        "virtualMachines_windows_01_id": {
-            "defaultValue": "/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Compute/disks/windows-01_OsDisk_1_2c824d749fe44d01b80b4893c53a9839",
+        "virtualMachines_windowsvm_01_id": {
+            "defaultValue": "/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Compute/disks/windowsvm-01_OsDisk_1_777080ea18914e96b1c5a5b2d28ef90e",
             "type": "String"
         }
     },
     "variables": {},
     "resources": [
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Compute/virtualMachines/kali-linuxvm01'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Compute/virtualMachines/kalivm-01'.",
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "[parameters('virtualMachines_kali_linuxvm01_name')]",
+            "name": "[parameters('virtualMachines_kalivm_01_name')]",
             "apiVersion": "2018-06-01",
             "location": "brazilsouth",
             "plan": {
@@ -88,7 +100,7 @@
             "scale": null,
             "properties": {
                 "hardwareProfile": {
-                    "vmSize": "Standard_B2s"
+                    "vmSize": "Standard_D2"
                 },
                 "storageProfile": {
                     "imageReference": {
@@ -99,19 +111,19 @@
                     },
                     "osDisk": {
                         "osType": "Linux",
-                        "name": "[concat(parameters('virtualMachines_kali_linuxvm01_name'),'_OsDisk_1_7d8a01bf7a4f4638ad50a2d33cd138f5')]",
+                        "name": "[concat(parameters('virtualMachines_kalivm_01_name'),'_OsDisk_1_2fd0c4369fff43af90432ad3bd19136f')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                            "storageAccountType": "Premium_LRS",
-                            "id": "[parameters('virtualMachines_kali_linuxvm01_id')]"
+                            "storageAccountType": "StandardSSD_LRS",
+                            "id": "[parameters('virtualMachines_kalivm_01_id')]"
                         },
                         "diskSizeGB": 30
                     },
                     "dataDisks": []
                 },
                 "osProfile": {
-                    "computerName": "[parameters('virtualMachines_kali_linuxvm01_name')]",
+                    "computerName": "[parameters('virtualMachines_kalivm_01_name')]",
                     "adminUsername": "benjadiaz",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": false,
@@ -123,23 +135,17 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_kali_linuxvm01840_name'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_kalivm_01321_name'))]"
                         }
                     ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "https://inacapdemorgdiag.blob.core.windows.net/"
-                    }
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_kali_linuxvm01840_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_kalivm_01321_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Compute/virtualMachines/ubuntuvm-01'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Compute/virtualMachines/ubuntuvm-01'.",
             "type": "Microsoft.Compute/virtualMachines",
             "name": "[parameters('virtualMachines_ubuntuvm_01_name')]",
             "apiVersion": "2018-06-01",
@@ -159,7 +165,7 @@
                     },
                     "osDisk": {
                         "osType": "Linux",
-                        "name": "[concat(parameters('virtualMachines_ubuntuvm_01_name'),'_OsDisk_1_efa256016bf24e3c9ce61120aaf35a19')]",
+                        "name": "[concat(parameters('virtualMachines_ubuntuvm_01_name'),'_OsDisk_1_a34c6adb17ce48248649e91cfcddb7d5')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
@@ -183,25 +189,19 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ubuntuvm_01949_name'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ubuntuvm_01480_name'))]"
                         }
                     ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "https://inacapdemorgdiag.blob.core.windows.net/"
-                    }
                 }
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ubuntuvm_01949_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_ubuntuvm_01480_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Compute/virtualMachines/windows-01'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Compute/virtualMachines/windowsvm-01'.",
             "type": "Microsoft.Compute/virtualMachines",
-            "name": "[parameters('virtualMachines_windows_01_name')]",
+            "name": "[parameters('virtualMachines_windowsvm_01_name')]",
             "apiVersion": "2018-06-01",
             "location": "brazilsouth",
             "tags": {},
@@ -214,24 +214,24 @@
                     "imageReference": {
                         "publisher": "MicrosoftWindowsDesktop",
                         "offer": "Windows-10",
-                        "sku": "rs4-pro",
+                        "sku": "RS3-Pro",
                         "version": "latest"
                     },
                     "osDisk": {
                         "osType": "Windows",
-                        "name": "[concat(parameters('virtualMachines_windows_01_name'),'_OsDisk_1_2c824d749fe44d01b80b4893c53a9839')]",
+                        "name": "[concat(parameters('virtualMachines_windowsvm_01_name'),'_OsDisk_1_777080ea18914e96b1c5a5b2d28ef90e')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
                             "storageAccountType": "Premium_LRS",
-                            "id": "[parameters('virtualMachines_windows_01_id')]"
+                            "id": "[parameters('virtualMachines_windowsvm_01_id')]"
                         },
                         "diskSizeGB": 127
                     },
                     "dataDisks": []
                 },
                 "osProfile": {
-                    "computerName": "[parameters('virtualMachines_windows_01_name')]",
+                    "computerName": "[parameters('virtualMachines_windowsvm_01_name')]",
                     "adminUsername": "benjadiaz",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
@@ -243,46 +243,40 @@
                 "networkProfile": {
                     "networkInterfaces": [
                         {
-                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_windows_01371_name'))]"
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_windowsvm_01937_name'))]"
                         }
                     ]
-                },
-                "diagnosticsProfile": {
-                    "bootDiagnostics": {
-                        "enabled": true,
-                        "storageUri": "https://inacapdemorgdiag.blob.core.windows.net/"
-                    }
                 },
                 "licenseType": "Windows_Client"
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_windows_01371_name'))]"
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_windowsvm_01937_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkInterfaces/kali-linuxvm01840'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkInterfaces/kalivm-01321'.",
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[parameters('networkInterfaces_kali_linuxvm01840_name')]",
+            "name": "[parameters('networkInterfaces_kalivm_01321_name')]",
             "apiVersion": "2018-08-01",
             "location": "brazilsouth",
             "tags": {},
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "b066886a-bc87-4778-9a93-1c56dfc22b32",
+                "resourceGuid": "9e76ec37-63ab-4e32-9975-c3fb5399ceeb",
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "etag": "W/\"9b4c12ae-1f3f-4986-980f-48a81c771af2\"",
+                        "etag": "W/\"bb157604-a3fb-40c8-aedc-42296da01f8e\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "10.0.0.4",
+                            "privateIPAddress": "10.0.1.4",
                             "privateIPAllocationMethod": "Dynamic",
                             "publicIPAddress": {
-                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_kali_linuxvm01_ip_name'))]"
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_kalivm_01_ip_name'))]"
                             },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_rg01_vnet_name'), parameters('subnets_default_name'))]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -292,44 +286,47 @@
                 "dnsSettings": {
                     "dnsServers": [],
                     "appliedDnsServers": [],
-                    "internalDomainNameSuffix": "dymlq5syoote5ht03bxrir44ah.nx.internal.cloudapp.net"
+                    "internalDomainNameSuffix": "h0ivnwhdo0qepgwjmg0fi3euhf.nx.internal.cloudapp.net"
                 },
-                "macAddress": "00-0D-3A-C0-6F-03",
+                "macAddress": "00-0D-3A-C0-5C-A2",
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kali_linuxvm01_nsg_name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kalivm_01_nsg_name'))]"
                 },
                 "primary": true,
                 "tapConfigurations": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_kali_linuxvm01_ip_name'))]",
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kali_linuxvm01_nsg_name'))]"
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_kalivm_01_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_rg01_vnet_name'), parameters('subnets_default_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kalivm_01_nsg_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkInterfaces/ubuntuvm-01949'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkInterfaces/ubuntuvm-01480'.",
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[parameters('networkInterfaces_ubuntuvm_01949_name')]",
+            "name": "[parameters('networkInterfaces_ubuntuvm_01480_name')]",
             "apiVersion": "2018-08-01",
             "location": "brazilsouth",
             "tags": {},
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "8eda0473-9c8e-4ea4-a2c9-b6e6d5e9b070",
+                "resourceGuid": "7ca82c0b-f164-4148-91c9-aa3daafd3194",
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "etag": "W/\"a4a3ece7-7780-48d0-8d2a-7eda7f919c00\"",
+                        "etag": "W/\"a856e653-c02e-4d8a-84f3-9128531e63f2\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "10.0.0.6",
+                            "privateIPAddress": "10.0.1.6",
                             "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ubuntuvm_01_ip_name'))]"
+                            },
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_rg01_vnet_name'), parameters('subnets_default_name'))]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -339,9 +336,9 @@
                 "dnsSettings": {
                     "dnsServers": [],
                     "appliedDnsServers": [],
-                    "internalDomainNameSuffix": "dymlq5syoote5ht03bxrir44ah.nx.internal.cloudapp.net"
+                    "internalDomainNameSuffix": "h0ivnwhdo0qepgwjmg0fi3euhf.nx.internal.cloudapp.net"
                 },
-                "macAddress": "00-0D-3A-C1-52-EB",
+                "macAddress": "00-0D-3A-C0-83-6F",
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
@@ -351,31 +348,32 @@
                 "tapConfigurations": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]",
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_ubuntuvm_01_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_rg01_vnet_name'), parameters('subnets_default_name'))]",
                 "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_ubuntuvm_01_nsg_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkInterfaces/windows-01371'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkInterfaces/windowsvm-01937'.",
             "type": "Microsoft.Network/networkInterfaces",
-            "name": "[parameters('networkInterfaces_windows_01371_name')]",
+            "name": "[parameters('networkInterfaces_windowsvm_01937_name')]",
             "apiVersion": "2018-08-01",
             "location": "brazilsouth",
             "tags": {},
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "7e125d3d-3bbb-452c-b522-9f22c219f953",
+                "resourceGuid": "f6bf0c12-6392-4b63-ae63-7bf0b7c35950",
                 "ipConfigurations": [
                     {
                         "name": "ipconfig1",
-                        "etag": "W/\"d7a3f4bb-2253-46f8-ab31-623e5027478e\"",
+                        "etag": "W/\"afcb47b3-70d7-4934-9ff5-bb452edb757b\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "privateIPAddress": "10.0.0.5",
+                            "privateIPAddress": "10.0.1.5",
                             "privateIPAllocationMethod": "Dynamic",
                             "subnet": {
-                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]"
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_rg01_vnet_name'), parameters('subnets_default_name'))]"
                             },
                             "primary": true,
                             "privateIPAddressVersion": "IPv4"
@@ -385,37 +383,37 @@
                 "dnsSettings": {
                     "dnsServers": [],
                     "appliedDnsServers": [],
-                    "internalDomainNameSuffix": "dymlq5syoote5ht03bxrir44ah.nx.internal.cloudapp.net"
+                    "internalDomainNameSuffix": "h0ivnwhdo0qepgwjmg0fi3euhf.nx.internal.cloudapp.net"
                 },
-                "macAddress": "00-0D-3A-C0-9F-BB",
+                "macAddress": "00-0D-3A-C0-7B-FC",
                 "enableAcceleratedNetworking": false,
                 "enableIPForwarding": false,
                 "networkSecurityGroup": {
-                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_windows_01_nsg_name'))]"
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_windowsvm_01_nsg_name'))]"
                 },
                 "primary": true,
                 "tapConfigurations": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_demoRG_vnet_name'), parameters('subnets_default_name'))]",
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_windows_01_nsg_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_inacap_rg01_vnet_name'), parameters('subnets_default_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_windowsvm_01_nsg_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkSecurityGroups/kali-linuxvm01-nsg'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkSecurityGroups/kalivm-01-nsg'.",
             "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('networkSecurityGroups_kali_linuxvm01_nsg_name')]",
+            "name": "[parameters('networkSecurityGroups_kalivm_01_nsg_name')]",
             "apiVersion": "2018-08-01",
             "location": "brazilsouth",
             "tags": {},
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "cbfa704d-59c7-4364-aa14-9d0bf840085e",
+                "resourceGuid": "8f31e0d7-a024-483a-9470-ec80e1e983af",
                 "securityRules": [
                     {
                         "name": "SSH",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "protocol": "TCP",
@@ -434,7 +432,7 @@
                     },
                     {
                         "name": "RDP",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "protocol": "TCP",
@@ -455,7 +453,7 @@
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -475,7 +473,7 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -495,7 +493,7 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -515,7 +513,7 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -535,7 +533,7 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -555,7 +553,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"536ecb75-d6de-473c-96e1-a0cef427ad81\"",
+                        "etag": "W/\"fe0e72ae-5e84-477f-aee4-3103d8f611f4\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
@@ -578,7 +576,7 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkSecurityGroups/ubuntuvm-01-nsg'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkSecurityGroups/ubuntuvm-01-nsg'.",
             "type": "Microsoft.Network/networkSecurityGroups",
             "name": "[parameters('networkSecurityGroups_ubuntuvm_01_nsg_name')]",
             "apiVersion": "2018-08-01",
@@ -587,12 +585,32 @@
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "5e699296-6c58-4eee-9fc7-28cd5ddfd996",
-                "securityRules": [],
+                "resourceGuid": "f3033274-c32a-4356-a9df-041e52adbd03",
+                "securityRules": [
+                    {
+                        "name": "SSH",
+                        "etag": "W/\"d999566c-17f2-45a2-bfb0-26fa90ba9166\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "22",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 300,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"0424866b-b282-4054-a37d-1ec2f2167a4b\"",
+                        "etag": "W/\"d999566c-17f2-45a2-bfb0-26fa90ba9166\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -612,7 +630,7 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"0424866b-b282-4054-a37d-1ec2f2167a4b\"",
+                        "etag": "W/\"d999566c-17f2-45a2-bfb0-26fa90ba9166\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -632,7 +650,7 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"0424866b-b282-4054-a37d-1ec2f2167a4b\"",
+                        "etag": "W/\"d999566c-17f2-45a2-bfb0-26fa90ba9166\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -652,7 +670,7 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"0424866b-b282-4054-a37d-1ec2f2167a4b\"",
+                        "etag": "W/\"d999566c-17f2-45a2-bfb0-26fa90ba9166\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -672,7 +690,7 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"0424866b-b282-4054-a37d-1ec2f2167a4b\"",
+                        "etag": "W/\"d999566c-17f2-45a2-bfb0-26fa90ba9166\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -692,7 +710,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"0424866b-b282-4054-a37d-1ec2f2167a4b\"",
+                        "etag": "W/\"d999566c-17f2-45a2-bfb0-26fa90ba9166\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
@@ -715,21 +733,41 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkSecurityGroups/windows-01-nsg'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkSecurityGroups/windowsvm-01-nsg'.",
             "type": "Microsoft.Network/networkSecurityGroups",
-            "name": "[parameters('networkSecurityGroups_windows_01_nsg_name')]",
+            "name": "[parameters('networkSecurityGroups_windowsvm_01_nsg_name')]",
             "apiVersion": "2018-08-01",
             "location": "brazilsouth",
             "tags": {},
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "e265bf18-737f-46fd-9d3f-5893d4e303d9",
-                "securityRules": [],
+                "resourceGuid": "4515211a-18b3-4c92-a09b-9eedd692cd5f",
+                "securityRules": [
+                    {
+                        "name": "RDP",
+                        "etag": "W/\"0870924d-f422-4115-8297-d6e506224146\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 300,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
                 "defaultSecurityRules": [
                     {
                         "name": "AllowVnetInBound",
-                        "etag": "W/\"e0856fae-7fd9-4e7b-abe4-9c8cd6e70007\"",
+                        "etag": "W/\"0870924d-f422-4115-8297-d6e506224146\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from all VMs in VNET",
@@ -749,7 +787,7 @@
                     },
                     {
                         "name": "AllowAzureLoadBalancerInBound",
-                        "etag": "W/\"e0856fae-7fd9-4e7b-abe4-9c8cd6e70007\"",
+                        "etag": "W/\"0870924d-f422-4115-8297-d6e506224146\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow inbound traffic from azure load balancer",
@@ -769,7 +807,7 @@
                     },
                     {
                         "name": "DenyAllInBound",
-                        "etag": "W/\"e0856fae-7fd9-4e7b-abe4-9c8cd6e70007\"",
+                        "etag": "W/\"0870924d-f422-4115-8297-d6e506224146\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all inbound traffic",
@@ -789,7 +827,7 @@
                     },
                     {
                         "name": "AllowVnetOutBound",
-                        "etag": "W/\"e0856fae-7fd9-4e7b-abe4-9c8cd6e70007\"",
+                        "etag": "W/\"0870924d-f422-4115-8297-d6e506224146\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to all VMs in VNET",
@@ -809,7 +847,7 @@
                     },
                     {
                         "name": "AllowInternetOutBound",
-                        "etag": "W/\"e0856fae-7fd9-4e7b-abe4-9c8cd6e70007\"",
+                        "etag": "W/\"0870924d-f422-4115-8297-d6e506224146\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Allow outbound traffic from all VMs to Internet",
@@ -829,7 +867,7 @@
                     },
                     {
                         "name": "DenyAllOutBound",
-                        "etag": "W/\"e0856fae-7fd9-4e7b-abe4-9c8cd6e70007\"",
+                        "etag": "W/\"0870924d-f422-4115-8297-d6e506224146\"",
                         "properties": {
                             "provisioningState": "Succeeded",
                             "description": "Deny all outbound traffic",
@@ -852,21 +890,21 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/publicIPAddresses/kali-linuxvm01-ip'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/publicIPAddresses/kalivm-01-ip'.",
             "type": "Microsoft.Network/publicIPAddresses",
             "sku": {
                 "name": "Basic",
                 "tier": "Regional"
             },
-            "name": "[parameters('publicIPAddresses_kali_linuxvm01_ip_name')]",
+            "name": "[parameters('publicIPAddresses_kalivm_01_ip_name')]",
             "apiVersion": "2018-08-01",
             "location": "brazilsouth",
             "tags": {},
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "7b303ef2-c16b-4ab0-8b85-13c01877c198",
-                "ipAddress": "191.237.252.78",
+                "resourceGuid": "b451c44e-73d6-44cf-9192-d79aa2ded4c9",
+                "ipAddress": "191.232.197.65",
                 "publicIPAddressVersion": "IPv4",
                 "publicIPAllocationMethod": "Dynamic",
                 "idleTimeoutInMinutes": 4,
@@ -875,28 +913,51 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/virtualNetworks/inacap-demoRG-vnet'.",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[parameters('virtualNetworks_inacap_demoRG_vnet_name')]",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/publicIPAddresses/ubuntuvm-01-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic",
+                "tier": "Regional"
+            },
+            "name": "[parameters('publicIPAddresses_ubuntuvm_01_ip_name')]",
             "apiVersion": "2018-08-01",
             "location": "brazilsouth",
             "tags": {},
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "resourceGuid": "7eb8181e-7358-4fa6-9e7a-e86f1447de07",
+                "resourceGuid": "ac475bef-3089-4b8e-babc-0f3eb304cbe1",
+                "ipAddress": "191.232.197.116",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "ipTags": []
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/virtualNetworks/inacap-rg01-vnet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_inacap_rg01_vnet_name')]",
+            "apiVersion": "2018-08-01",
+            "location": "brazilsouth",
+            "tags": {},
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "d856913e-76e3-47a0-9ac9-61b45474943d",
                 "addressSpace": {
                     "addressPrefixes": [
-                        "10.0.0.0/24"
+                        "10.0.1.0/24"
                     ]
                 },
                 "subnets": [
                     {
                         "name": "default",
-                        "etag": "W/\"01bb949e-b1d4-4811-9f36-60e3abaa9aba\"",
+                        "etag": "W/\"6b5a8606-9c06-4e56-934a-64273d71a395\"",
                         "properties": {
                             "provisioningState": "Succeeded",
-                            "addressPrefix": "10.0.0.0/24",
+                            "addressPrefix": "10.0.1.0/24",
                             "delegations": []
                         }
                     }
@@ -908,9 +969,9 @@
             "dependsOn": []
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkSecurityGroups/kali-linuxvm01-nsg/securityRules/SSH'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkSecurityGroups/kalivm-01-nsg/securityRules/SSH'.",
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "name": "[concat(parameters('networkSecurityGroups_kali_linuxvm01_nsg_name'), '/', parameters('securityRules_SSH_name'))]",
+            "name": "[concat(parameters('networkSecurityGroups_kalivm_01_nsg_name'), '/', parameters('securityRules_SSH_name'))]",
             "apiVersion": "2018-08-01",
             "scale": null,
             "properties": {
@@ -929,13 +990,13 @@
                 "destinationAddressPrefixes": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kali_linuxvm01_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kalivm_01_nsg_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/networkSecurityGroups/kali-linuxvm01-nsg/securityRules/RDP'.",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkSecurityGroups/kalivm-01-nsg/securityRules/RDP'.",
             "type": "Microsoft.Network/networkSecurityGroups/securityRules",
-            "name": "[concat(parameters('networkSecurityGroups_kali_linuxvm01_nsg_name'), '/', parameters('securityRules_RDP_name'))]",
+            "name": "[concat(parameters('networkSecurityGroups_kalivm_01_nsg_name'), '/', parameters('securityRules_RDP_name'))]",
             "apiVersion": "2018-08-01",
             "scale": null,
             "properties": {
@@ -954,22 +1015,72 @@
                 "destinationAddressPrefixes": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kali_linuxvm01_nsg_name'))]"
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_kalivm_01_nsg_name'))]"
             ]
         },
         {
-            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-demoRG/providers/Microsoft.Network/virtualNetworks/inacap-demoRG-vnet/subnets/default'.",
-            "type": "Microsoft.Network/virtualNetworks/subnets",
-            "name": "[concat(parameters('virtualNetworks_inacap_demoRG_vnet_name'), '/', parameters('subnets_default_name'))]",
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkSecurityGroups/ubuntuvm-01-nsg/securityRules/SSH'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_ubuntuvm_01_nsg_name'), '/', parameters('securityRules_SSH_name_1'))]",
             "apiVersion": "2018-08-01",
             "scale": null,
             "properties": {
                 "provisioningState": "Succeeded",
-                "addressPrefix": "10.0.0.0/24",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "22",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 300,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_ubuntuvm_01_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/networkSecurityGroups/windowsvm-01-nsg/securityRules/RDP'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_windowsvm_01_nsg_name'), '/', parameters('securityRules_RDP_name_1'))]",
+            "apiVersion": "2018-08-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 300,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_windowsvm_01_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/979226a0-fd4a-4f1b-9bc5-46d431e71647/resourceGroups/inacap-rg01/providers/Microsoft.Network/virtualNetworks/inacap-rg01-vnet/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_inacap_rg01_vnet_name'), '/', parameters('subnets_default_name'))]",
+            "apiVersion": "2018-08-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.1.0/24",
                 "delegations": []
             },
             "dependsOn": [
-                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_inacap_demoRG_vnet_name'))]"
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_inacap_rg01_vnet_name'))]"
             ]
         }
     ]
