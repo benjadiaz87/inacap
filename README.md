@@ -13,7 +13,7 @@ La primera parte del laboratorio consiste en ingresar via ssh a la maquina con n
         ----------------  -------------------  --------------------
         kali-linuxvm01    191.237.252.78       10.0.0.4
         ubuntuvm-01                            10.0.0.6
-        windows-01        191.237.249.89       10.0.0.5
+        windows-01                             10.0.0.5
 
 En este caso tanto la maquina windows-01 como kali-linuxvm01 tienen una IP publica. Podemos llegar a la maquina kali-linuxvm01 via ssh con la ip 191.237.252.78. Corramos un ifconfig dentro de la maquina:
 
@@ -114,5 +114,41 @@ Ahora vamos con la 10.0.0.6:
 
         OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
         Nmap done: 1 IP address (1 host up) scanned in 12.05 seconds
+
+Instalemos un escritorio en la maquina Kali:
+
+        sudo apt-get update
+        sudo apt-get install xfce4
+        sudo apt-get install xrdp
+        sudo systemctl enable xrdp
+        echo xfce4-session >~/.xsession
+        sudo service xrdp restart
+        
+Con esto, ya deberiamos poder acceder a la maquina Kali via RDP para poder utilizar las herramientas de penetration testing de Kali a nivel escritorio. En Ubuntu se puede utilizar Remmina y en Windows Remote desktop client.
+
+Nos dimos cuenta que la maquina Windows tiene un puerto RDP abierto y una IP interna definida. Intentemos hacer RDP a esa IP, ya que sabemos que esa VM tiene un puerto 3389 abierto. Como la maquina no tiene una IP Publica tenemos que accederla desde Kali. Para esto debemos instalar Remmina en Kali.
+
+        sudo apt-get update
+        sudo apt-get install remmina
+
+Ahora desde remmina intentemos llegar a la IP de la maquina Windows que sabemos que tiene abierto el puerto 3389, y probablmente tiene escritorio remoto como servicio arriba. 
+
+Como sabemos que la VM ubuntu tiene el puerto 22 abierto, podemos intentar lo mismo y llegar via ssh a la maquina ubuntu. 
+
+Notar que ni la maquina Windows ni la maquina Ubuntu tienen una IP Publica, por ende, la unica manera de llegar a ellas es desde la maquina Kali que esta en la misma red. Desde la maquina Kali, intentemos llegar a la maquina ubuntu.
+
+        ssh benjadiaz@10.0.0.6
+        sudo apt-get update
+
+Intentemos instalar Apache desde la mauqina Ubuntu.
+
+        sudo apt-get install apache2
+        sudo service --status-all   
+        
+Esta maquina no tiene escritorio, asi que para poder ver si es que podemos ver el landing page de Apache, tenemos que entrar desde Edge en la maquina Windows.
+
+Esta Arriba.
+
+
 
 
