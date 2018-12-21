@@ -115,7 +115,7 @@
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
                         "managedDisk": {
-                          "storageAccountType": "Standard_LRS"
+                            "storageAccountType": "StandardSSD_LRS",
                         },
                         "diskSizeGB": 30
                     },
@@ -124,6 +124,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_kalivm_01_name')]",
                     "adminUsername": "benjadiaz",
+		    "adminPassword":"xwrp1Wbenjabenja",		
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": false,
                         "provisionVMAgent": true
@@ -167,9 +168,9 @@
                         "name": "[concat(parameters('virtualMachines_ubuntuvm_01_name'),'_OsDisk_1_a34c6adb17ce48248649e91cfcddb7d5')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
-                    "managedDisk": {
-                      "storageAccountType": "Standard_LRS"
-                    },
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                        },
                         "diskSizeGB": 30
                     },
                     "dataDisks": []
@@ -177,6 +178,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_ubuntuvm_01_name')]",
                     "adminUsername": "benjadiaz",
+		    "adminPassword":"xwrp1Wbenjabenja",
                     "linuxConfiguration": {
                         "disablePasswordAuthentication": false,
                         "provisionVMAgent": true
@@ -220,9 +222,9 @@
                         "name": "[concat(parameters('virtualMachines_windowsvm_01_name'),'_OsDisk_1_777080ea18914e96b1c5a5b2d28ef90e')]",
                         "createOption": "FromImage",
                         "caching": "ReadWrite",
-                    "managedDisk": {
-                      "storageAccountType": "Standard_LRS"
-                    },
+                        "managedDisk": {
+                            "storageAccountType": "Premium_LRS",
+                        },
                         "diskSizeGB": 127
                     },
                     "dataDisks": []
@@ -230,6 +232,7 @@
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_windowsvm_01_name')]",
                     "adminUsername": "benjadiaz",
+		    "adminPassword":"xwrp1Wbenjabenja",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
